@@ -2,10 +2,38 @@
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+window.onload = () => {
+  document.querySelector("#button").addEventListener("click", () => {
+    document.querySelector("#domain").innerHTML = generateDomainName();
+  });
 };
+
+function generateDomainName() {
+  let pronoun = ["a", "the", "one"];
+  let adj = [
+    "awesome",
+    "great",
+    "impressive",
+    "incredible",
+    "big",
+    "beautiful",
+    "fast"
+  ];
+  let noun = ["racoon", "jogger", "runner", "hero", "pixel", "enigma"];
+  let extension = ["com", "net", "org", "dev", "edu"];
+
+  let pronounIndex = Math.floor(Math.random() * pronoun.length);
+  let adjIndex = Math.floor(Math.random() * adj.length);
+  let nounIndex = Math.floor(Math.random() * noun.length);
+  let extensionIndex = Math.floor(Math.random() * extension.length);
+
+  return (
+    pronoun[pronounIndex] +
+    "" +
+    adj[adjIndex] +
+    "" +
+    noun[nounIndex] +
+    "." +
+    extension[extensionIndex]
+  );
+}
