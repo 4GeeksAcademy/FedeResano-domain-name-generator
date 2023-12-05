@@ -8,7 +8,7 @@ window.onload = () => {
 };
 
 function generateDomainName() {
-  const pronoun = ["a", "the", "one"];
+  const pronoun = ["the", "one"];
   const adj = [
     "awesome",
     "great",
