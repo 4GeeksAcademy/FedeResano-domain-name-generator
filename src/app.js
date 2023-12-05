@@ -19,20 +19,21 @@ function generateDomainName() {
     "fast"
   ];
   let noun = ["racoon", "jogger", "runner", "hero", "pixel", "enigma"];
-  let extension = ["com", "net", "org", "dev", "edu"];
+  let extension = ["com", "net", "org", "dev", "edu", "io", "us", "tv"];
 
   let pronounIndex = Math.floor(Math.random() * pronoun.length);
   let adjIndex = Math.floor(Math.random() * adj.length);
   let nounIndex = Math.floor(Math.random() * noun.length);
   let extensionIndex = Math.floor(Math.random() * extension.length);
 
-  return (
+  let domain =
     pronoun[pronounIndex] +
     "" +
     adj[adjIndex] +
     "" +
     noun[nounIndex] +
-    "." +
-    extension[extensionIndex]
-  );
+    "" +
+    extension[extensionIndex];
+
+  return domain;
 }
