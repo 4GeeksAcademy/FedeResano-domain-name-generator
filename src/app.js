@@ -2,14 +2,14 @@ import "bootstrap";
 import "./style.css";
 
 window.onload = () => {
-  document.querySelector("#button").addEventListener("click", () => {
-    document.querySelector("#domain").innerHTML = generateDomainName();
-  });
+  const domainArray = generateDomainName();
+  const domainString = domainArray.join("<br>");
+  document.querySelector("#domain").innerHTML = domainString;
 };
 
 function generateDomainName() {
-  let pronoun = ["a", "the", "one"];
-  let adj = [
+  const pronoun = ["a", "the", "one"];
+  const adj = [
     "awesome",
     "great",
     "impressive",
@@ -18,22 +18,30 @@ function generateDomainName() {
     "beautiful",
     "fast"
   ];
-  let noun = ["racoon", "jogger", "runner", "hero", "pixel", "enigma"];
-  let extension = ["com", "net", "org", "dev", "edu", "io", "us", "tv"];
+  const noun = ["racoon", "jogger", "runner", "hero", "pixel", "enigma"];
+  const extension = [
+    ".com",
+    ".net",
+    ".org",
+    ".dev",
+    ".edu",
+    ".io",
+    ".us",
+    ".tv"
+  ];
 
-  let pronounIndex = Math.floor(Math.random() * pronoun.length);
-  let adjIndex = Math.floor(Math.random() * adj.length);
-  let nounIndex = Math.floor(Math.random() * noun.length);
-  let extensionIndex = Math.floor(Math.random() * extension.length);
+  let domain = [];
 
-  let domain =
-    pronoun[pronounIndex] +
-    "" +
-    adj[adjIndex] +
-    "" +
-    noun[nounIndex] +
-    "" +
-    extension[extensionIndex];
-
+  for (let i = 0; i < pronoun.length; i++) {
+    for (let j = 0; j < adj.length; j++) {
+      for (let k = 0; k < noun.length; k++) {
+        for (let n = 0; n < extension.length; n++) {
+          domain.push(
+            pronoun[i] + "" + adj[j] + "" + noun[k] + "" + extension[n]
+          );
+        }
+      }
+    }
+  }
   return domain;
 }
